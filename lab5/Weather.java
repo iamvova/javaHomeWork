@@ -1,4 +1,4 @@
-package task5;
+package javaHomeWork.lab5;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;

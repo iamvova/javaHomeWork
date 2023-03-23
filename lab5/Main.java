@@ -1,4 +1,4 @@
-package task5;
+package javaHomeWork.lab5;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
