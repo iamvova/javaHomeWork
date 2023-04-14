@@ -1,5 +1,8 @@
 package javaHomeWork.lab6;
 
+import javaHomeWork.lab6.entity.Device;
+import javaHomeWork.lab6.entity.Phone;
+import javaHomeWork.lab6.entity.SocialMedia;
 import javaHomeWork.lab6.entity.Weather;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -31,7 +34,12 @@ public class HibernateUtil {
             // Build the configuration object and register entity classes
             Configuration configuration = new Configuration();
             configuration.setProperties(hibernateProps);
+
             configuration.addAnnotatedClass(Weather.class);
+            configuration.addAnnotatedClass(Phone.class);
+            configuration.addAnnotatedClass(Device.class);
+            configuration.addAnnotatedClass(SocialMedia.class);
+
             // Build the ServiceRegistry and create the SessionFactory
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
