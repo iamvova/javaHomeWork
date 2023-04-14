@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
-public class Main {
+public class Lab4 {
     public static void main(String[] args) throws InterruptedException, NoSuchFieldException, IllegalAccessException {
         int threadsCount = 5;
         CountDownLatch latch = new CountDownLatch(threadsCount);

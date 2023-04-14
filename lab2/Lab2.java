@@ -1,12 +1,20 @@
+package javaHomeWork.lab2;
+
 import java.util.Scanner;
-public class Main {
+public class Lab2 {
     public static void main(String[] args) {
         enum DAY {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY}
+        int inputDayOfWeek = 1;
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter day of week");
 
-        int inputDayOfWeek = Integer.parseInt(myObj.nextLine());  // Read user input
-        switch (inputDayOfWeek) {
+        inputDayOfWeek = Integer.parseInt(myObj.nextLine());  // Read user input
+
+
+        findDay(inputDayOfWeek);
+    }
+    public static int findDay(int day){
+        switch (day) {
             case 1 -> System.out.println("Monday");
             case 2 -> System.out.println("Tuesday");
             case 3 -> System.out.println("Wednesday");
@@ -15,5 +23,6 @@ public class Main {
             case 6 -> System.out.println("Saturday");
             case 7 -> System.out.println("Sunday");
         }
+        return day;
     }
 }

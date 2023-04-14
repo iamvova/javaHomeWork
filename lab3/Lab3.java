@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-public class Main {
+public class Lab3 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
