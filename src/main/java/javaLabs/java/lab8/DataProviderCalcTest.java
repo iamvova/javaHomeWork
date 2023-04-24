@@ -1,4 +1,4 @@
-package lab8;
+package javaLabs.java.lab8;
 
 
 import javaLabs.lab2.Lab2;

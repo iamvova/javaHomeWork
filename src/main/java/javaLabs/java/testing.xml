@@ -1,0 +1,24 @@
+<!--Create testng.xml which should execute your test class. Execute this file-->
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="all test SUITE">
+
+    <parameter name="expected" value="Monday" />
+    <parameter name="num" value="1" />
+
+    <test name="Calc test">
+        <packages>
+            <package name="lab8"/>
+        </packages>
+    </test>
+
+    <test name="Calc test with param">
+        <classes>
+            <class name="lab8.ParametrizedCalcTest">
+                <methods>
+                    <include name="testGetDayOfWeek" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
