@@ -1,4 +1,4 @@
-package javaLabs.java.lab8;
+package javaLabs.test.lab8;
 
 import javaLabs.lab2.Lab2;
 import org.testng.Assert;

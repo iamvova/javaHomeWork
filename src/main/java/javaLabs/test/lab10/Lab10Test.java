@@ -1,4 +1,4 @@
-package javaLabs.java.lab10;
+package javaLabs.test.lab10;
 
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import org.openqa.selenium.By;
