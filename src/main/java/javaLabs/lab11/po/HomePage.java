@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage {
     private WebDriver driver;
-    public static final String URL = "https://www.demoblaze.com/";
+    public static final String URL = "https://demoqa.com/login";
     public HomePage(WebDriver driver){
         this.driver = driver;
         if (!URL.equals(driver.getCurrentUrl())){
@@ -13,13 +13,12 @@ public class HomePage {
         }
     }
     public SignupPage signUp() {
-        driver.findElement(By.id("signin2")).click();
         return new SignupPage(driver);
     }
 
     public LoginPage goToLoginPage() {
         //2. login
-        driver.findElement(By.id("login2")).click();
+        driver.findElement(By.id("login")).click();
         return new LoginPage(driver);
     }
 }

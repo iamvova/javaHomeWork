@@ -3,19 +3,12 @@ package lab11;
 
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import javaLabs.lab11.bo.DemoblazeBO;
-import javaLabs.lab11.po.HomePage;
-import javaLabs.lab11.po.SignupPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-
-import java.util.UUID;
-
 
 public class EndToEndTest {
 
