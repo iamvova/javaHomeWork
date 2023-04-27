@@ -30,4 +30,8 @@ public class DemoblazeBO {
 
         Assert.assertEquals(userLabel, login);
     }
+
+    public void failTest() {
+        Assert.fail("My fail");
+    }
 }
