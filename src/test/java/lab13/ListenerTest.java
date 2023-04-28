@@ -35,7 +35,6 @@ public class ListenerTest {
 
     @Test
     void endToEndFailTest() throws InterruptedException {
-
         DemoblazeBO demoblazeBO = new DemoblazeBO();
 
         demoblazeBO.checkSignUpRandomUser()
