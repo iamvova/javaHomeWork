@@ -5,5 +5,9 @@ Update the due date of the card. Check that the API call returns a success statu
 Remove the due date from the card. Check that the API call returns a success status code and that the due date is removed from the card.
 
 
-key = 7af95734e5426354a6a039bc6aea5fd4
-token = ATTA094c1c16b3004c0e109aad044f09b5ab8d77ad25b33ced641f5a2300085a9b88626818F2
+Trello Api Key and Token
+key = <api_key>
+token = <api_token>
+
+
+Перед тестуванням необхідно вставити ключ та токен в JSON файл або в postman (для кожного запиту)

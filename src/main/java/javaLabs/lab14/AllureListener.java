@@ -34,7 +34,9 @@ public class AllureListener implements ITestListener {
     @Attachment(value="Page screen", type="image/png")
     private byte[] makeScreenShot(){
         LOGGER.error(" Error ----->");
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-
+        if (null !=driver) {
+            return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        }
+        return new byte[0];
     }
 }
