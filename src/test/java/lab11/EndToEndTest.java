@@ -11,8 +11,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class EndToEndTest {
-
-
     private WebDriver driver;
     @BeforeTest
     void setup(){
@@ -23,15 +21,11 @@ public class EndToEndTest {
     }
     @Test
     void endToEndTest() throws InterruptedException {
-
         DemoblazeBO demoblazeBO = new DemoblazeBO(driver);
 
         demoblazeBO.checkSignUpRandomUser()
                 .checkLoginUser();
-
     }
-
-
     @AfterTest
     void closeBrowser(){
         driver.close();
