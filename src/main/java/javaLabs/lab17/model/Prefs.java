@@ -1,4 +1,4 @@
-package lab17.model;
+package javaLabs.lab17.model;
 
 import lombok.Data;
 

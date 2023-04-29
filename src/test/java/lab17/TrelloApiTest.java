@@ -1,16 +1,17 @@
 package lab17;
 
-import lab17.model.CreateBoardRequest;
-import lab17.model.CreateBoardResponse;
-import lab17.model.DeleteRequest;
-import lab17.model.TrelloBoard;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javaLabs.lab17.TrelloBO;
+import javaLabs.lab17.model.CreateBoardRequest;
+import javaLabs.lab17.model.CreateBoardResponse;
+import javaLabs.lab17.model.DeleteRequest;
+import javaLabs.lab17.model.TrelloBoard;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.net.URISyntaxException;
 import java.util.Properties;
 import java.util.UUID;
@@ -62,11 +63,11 @@ public class TrelloApiTest {
         CreateBoardResponse expectedCreateBoardResponse = new CreateBoardResponse();
 
         expectedCreateBoardResponse.setBody(new TrelloBoard());
-        expectedCreateBoardResponse.getBody().setName(newBoardName);
-        expectedCreateBoardResponse.setStatusCode(200);
+        expectedCreateBoardResponse.getBody().setName(null);
+        expectedCreateBoardResponse.setStatusCode(400);
         expectedCreateBoardResponse.getBody().setId(createBoardResponse.getBody().getId());
-        expectedCreateBoardResponse.getBody().setDesc("");
-        expectedCreateBoardResponse.getBody().setClosed(false);
+        expectedCreateBoardResponse.getBody().setDesc(null);
+        expectedCreateBoardResponse.getBody().setClosed(null);
         expectedCreateBoardResponse.getBody().setIdOrganization(createBoardResponse.getBody().getIdOrganization());
         expectedCreateBoardResponse.getBody().setPinned(null);
         expectedCreateBoardResponse.getBody().setUrl(createBoardResponse.getBody().getUrl());

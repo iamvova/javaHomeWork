@@ -1,6 +1,5 @@
-package lab17.model;
+package javaLabs.lab17.model;
 
-import lab17.model.BaseTrelloExtends;
 import lombok.Data;
 
 

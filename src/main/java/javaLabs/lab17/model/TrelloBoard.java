@@ -1,8 +1,10 @@
-package lab17.model;
+package javaLabs.lab17.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.netty.channel.unix.Limits;
 import lombok.Data;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 public class TrelloBoard {
     private String id;

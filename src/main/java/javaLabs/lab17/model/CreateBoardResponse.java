@@ -1,6 +1,5 @@
-package lab17.model;
+package javaLabs.lab17.model;
 
-import lab17.model.TrelloBoard;
 import lombok.Data;
 
 @Data

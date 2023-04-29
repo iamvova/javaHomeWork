@@ -1,14 +1,13 @@
-package lab17;
+package javaLabs.lab17;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lab17.model.CreateBoardRequest;
-import lab17.model.CreateBoardResponse;
-import lab17.model.DeleteRequest;
-import lab17.model.TrelloBoard;
+import javaLabs.lab17.model.CreateBoardRequest;
+import javaLabs.lab17.model.CreateBoardResponse;
+import javaLabs.lab17.model.DeleteRequest;
+import javaLabs.lab17.model.TrelloBoard;
 import org.json.JSONArray;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.http.HttpClient;
@@ -33,7 +32,9 @@ public class TrelloBO {
 
         CreateBoardResponse res = new CreateBoardResponse();
         res.setStatusCode(createBoardResponse.statusCode());
+
         System.out.println(createBoardResponse.body());
+
         TrelloBoard createBoardResponseBody = objectMapper.readValue(createBoardResponse.body()+"" , TrelloBoard.class);
         res.setBody(createBoardResponseBody);
         return res;
