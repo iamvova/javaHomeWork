@@ -28,7 +28,7 @@ public class TrelloApiTest {
 
 
     @BeforeTest
-    void initProperties() throws IOException {
+    void initProperties(){
         try (Reader reader = new FileReader("src/main/resources/application.properties")) {
             properties.load(reader);
 
@@ -42,9 +42,12 @@ public class TrelloApiTest {
     void crudRestAssuredTest(){
         String trelloKey = properties.getProperty("trello.key");
         String trelloToken = properties.getProperty("trello.token");
-
         String newBoardName = UUID.randomUUID().toString().substring(2, 10);
+        String newListName = UUID.randomUUID().toString().substring(2, 10);
+        String newCardName = UUID.randomUUID().toString().substring(2, 10);
+        String dueDate = "2023-05-10T10:00:00.000Z";
 
+        //Create Board
         String boardId = given()
                 .contentType("application/json").accept("application/json")
                 .log().all()
@@ -52,34 +55,39 @@ public class TrelloApiTest {
                 .then().assertThat().statusCode(200)
                 .and().assertThat().body("name", equalTo(newBoardName)).extract().jsonPath().getString("id");
 
-        //get
-        given()
-                //.contentType("application/json")
-                .accept("application/json")
+        //Create List
+        String listId = given()
+                .contentType("application/json").accept("application/json")
                 .log().all()
-                .when().get("https://api.trello.com/1/boards/"+boardId+"?key="+trelloKey+"&token="+trelloToken)
+                .when().post("https://api.trello.com/1/lists?name="+newListName+"&idBoard="+boardId+""+newBoardName+"&key="+trelloKey+"&token="+trelloToken)
                 .then().assertThat().statusCode(200)
-                .and().assertThat().body("name", equalTo(newBoardName));
+                .and().assertThat().body("List", equalTo(newListName)).extract().jsonPath().getString("id");
 
-        //update
-        String updateBoardName = UUID.randomUUID().toString().substring(2, 10);
-        given()
-                //.contentType("application/json")
-                .accept("application/json")
+        //Create card
+        String cardId = given()
+                .contentType("application/json").accept("application/json")
                 .log().all()
-                .when().put("https://api.trello.com/1/boards/"+boardId+"?name="+updateBoardName+"&key="+trelloKey+"&token="+trelloToken)
+                .when().post("https://api.trello.com/1/card?name="+newCardName+"&idList="+listId+"&key="+trelloKey+"&token="+trelloToken)
                 .then().assertThat().statusCode(200)
-                .and().assertThat().body("name", equalTo(updateBoardName));
+                .and().assertThat().body("Card", equalTo(newListName)).extract().jsonPath().getString("id");
 
+        // Add or update Due Date
+        given()
+                .contentType("application/json").accept("application/json")
+                .log().all()
+                .when().put("https://api.trello.com/1/cards/"+cardId+"?due="+dueDate+"&key="+trelloKey+"&token="+trelloToken)
+                .then().assertThat().statusCode(200)
+                .and().assertThat().body("Due Date", equalTo(newListName)).extract().jsonPath().getString("id");
 
-        //delete
+        //Delete Due Date
         given()
                 //.contentType("application/json")
                 .accept("application/json")
                 .log().all()
-                .when().delete("https://api.trello.com/1/boards/"+boardId+"?key="+trelloKey+"&token="+trelloToken)
+                .when().delete("https://api.trello.com/1/cards/"+cardId+"?due="+dueDate+"?key="+trelloKey+"&token="+trelloToken)
                 .then().assertThat().statusCode(200)
                 .and().assertThat().body("_value", equalTo(null));
+
     }
 
 
